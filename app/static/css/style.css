@@ -1,0 +1,42 @@
+body {
+    background: #F0F8FF;
+}
+
+.home-page-buttons{
+    width: 75%;
+    text-align: center;
+}
+
+
+.league-table, .contact-form {
+    width: 75%;
+    margin-left: 15%;
+    background: #FFD6B0;
+}
+
+.choose-season {
+    background: #FFD6B0;
+    font-size: larger;
+}
+
+
+
+.home-page-card {
+    text-decoration: none;
+    color: #535399;
+    padding: 15px;
+    margin: 15px;
+}
+
+.home-page-card a {
+    text-decoration: none;
+    color: #535399;
+    border: 1px solid #535399;
+}
+
+
+.home-page-card:hover{
+    background: #FFD6B0;
+    color: #535399;
+    border: 1px solid #535399;
+}

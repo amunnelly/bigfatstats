@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+<h2>Choose a season to plot each team by its total points and goal difference.</h2>
+    {% for a in seasons %}
+    <div class="row">
+    {% for b in a %}
+    <a href="/{{ b }}_graph">
+    <div class="col choose-season">
+    {{ b }}
+    </a>
+    </div>
+    {% endfor %}
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container home-page-forms">
+<div class="row"></div>
+This is a portfolio site for me, Anthony Munnelly, to show some d3 graphics and a little bit of web app/development/whatever coding.
+<a href="#">
+<div class="home-page-card basic card">
+<h4>Premier League Tables</h4>
+Click here to see a table of links to Premier League seasons. Click a season to see the final table for that season.
+  </div>
+  </a>
+
+<div class="home-page-card basic card">
+<h4>Premier League Graphs</h4>
+Click here to see a table of links to Premier League seasons. Click a season to see a scatter plot for each team that was in the Premier League that season, with their total points plotted against their total goal difference.
+  <button type="submit" id=1 class="btn btn-default btn-lg btn-block home-page-button">Premier League Graphs</button>
+  </div>
+<div class="home-page-card basic card">
+<h4>Comment</h4>
+Click here to leave a comment.
+  <button type="submit" id=1 class="btn btn-default btn-lg btn-block home-page-button">Contact</button>
+  </div>
+<div class="home-page-card basic card">
+<h4>About</h4>
+Links, acknowledgements, and thanks.
+  <button type="submit" id=1 class="btn btn-default btn-lg btn-block home-page-button">About</button>
+  </div>
+</div>
+</div>
+{% endblock %}

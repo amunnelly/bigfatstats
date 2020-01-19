@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+<h2>Choose a season to see the final Premier League table for that season.</h2>
+
+    {% for a in seasons %}
+    <div class="row">
+    {% for b in a %}
+    <a href="/{{ b }}_table">
+    <div class="col choose-season">
+    {{ b }}
+    </a>
+    </div>
+    {% endfor %}
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
