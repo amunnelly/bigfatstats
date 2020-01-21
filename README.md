@@ -4,7 +4,7 @@ This is a portfolio site for me, Anthony Munnelly, to show some d3 graphics and 
 
 ## Premier League Tables
 
-Tables of the different season tables over teh past twenty Premier League seasons.
+Tables of the different season tables over the past twenty Premier League seasons.
 
 ## Premier League Graphs
 
