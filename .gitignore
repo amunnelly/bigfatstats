@@ -1,2 +1,4 @@
 ./db/searcher.json
 thingstocome.txt
+venv/
+__pycache__/
