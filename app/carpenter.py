@@ -74,10 +74,7 @@ class Carpenter(object):
 
     def get_first_name(self, name):
         name = name.split(" ")
-        if len(name) == 1:
-            return name
-        else:
-            return name[0]
+        return name[0]
 
     def log_comment(self, name, email, comment):
         stars = "*"*80

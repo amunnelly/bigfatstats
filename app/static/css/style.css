@@ -40,3 +40,17 @@ body {
     color: #535399;
     border: 1px solid #535399;
 }
+
+.tooltip {
+    position: absolute;
+    text-align: center;
+    width: 120px;
+    height: 70px;
+    padding: 2px;
+    font: 12px sans-serif;
+    background: #FFD6B0;
+    color: #535399;
+    border: solid 1px #535399;
+    border-radius: 8px;
+    pointer-events: none;
+}
