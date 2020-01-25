@@ -16,7 +16,7 @@ try:
 except:
     from app.db import dbconnect
 
-from carpenter import Carpenter
+from app.carpenter import Carpenter
 
 @app.route('/')
 @app.route('/index')
