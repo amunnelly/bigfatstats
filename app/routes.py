@@ -11,8 +11,11 @@ if db_path not in sys.path:
     sys.path.append(db_path)
 if c_path not in sys.path:
     sys.path.append(c_path)
+try:
+    import dbconnect
+except:
+    from db import dbconnect
 
-from .app.db import dbconnect
 from carpenter import Carpenter
 
 @app.route('/')
