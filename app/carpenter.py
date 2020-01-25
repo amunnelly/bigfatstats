@@ -14,7 +14,7 @@ if c_path not in sys.path:
 if csv_path not in sys.path:
     sys.path.append(csv_path)
 
-import dbconnect
+from app.db import dbconnect
 
 class Carpenter(object):
 
