@@ -1,1 +1,1 @@
-web: gunicorn bigfatstats.wsgi
+web: gunicorn app:app
