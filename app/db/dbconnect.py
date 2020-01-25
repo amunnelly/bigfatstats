@@ -16,7 +16,7 @@ class Postgres(object):
     def __init__(self, credentials):
         if 'DATABASE_url' in os.environ:
             dUrl = os.environ['DATABASE_URL']
-            self.con = psq.connect(dUrl, sslmode='require')
+            self.con = psq.connect(dUrl)
         else:
             with open(credentials, "r") as f:
                 cred = json.load(f)
