@@ -22,7 +22,7 @@ class Carpenter(object):
         self.table = []
         self.db = dbconnect.Postgres("app/db/searcher.json")
 
-    def make_table(self, item, competition):
+    def .make_soccer_table(self, item, competition):
         with open("app/queries/select_distinct.sql") as f:
             q = f.read()
         q = q.format(item, competition)

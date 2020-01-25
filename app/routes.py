@@ -47,14 +47,14 @@ def about():
 @app.route("/chooseTable")
 def chooseTable():
     c = Carpenter()
-    seasons = c.make_table("season", "Premier League")
+    seasons = c.make_soccer_table("season", "Premier League")
 
     return render_template("chooseTable.html", title="Seasons", seasons=seasons)
 
 @app.route("/chooseGraph")
 def chooseGraph():
     c = Carpenter()
-    seasons = c.make_table("season", "Premier League")
+    seasons = c.make_soccer_table("season", "Premier League")
 
     return render_template("chooseGraph.html", title="Seasons", seasons=seasons)
 
@@ -62,9 +62,18 @@ def chooseGraph():
 @app.route("/chooseTeam")
 def chooseTeam():
     c = Carpenter()
-    teams = c.make_table("team", "Premier League")
+    teams = c.make_soccer_table("team", "Premier League")
 
     return render_template("chooseTeam.html", title="teams", teams=teams)
+
+
+@app.route("/rain")
+def rain():
+    c = Carpenter()
+    teams = c.make_soccer_table("total")
+
+    return render_template("rain.html", title="teams", teams=teams)
+
 
 @app.route("/<string:season>_graph")
 def seasonGraph(season):

@@ -1,6 +1,6 @@
 # Big Fat Stats
 
-This is a portfolio site for me, Anthony Munnelly, to show some d3 graphics and a little bit of web app/development/whatever coding.
+A portfolio site featuring some Python-based data projects. It's not pretty, but it gets the job done - a lot like its author, as it happens.
 
 ## Premier League Tables
 
@@ -17,3 +17,5 @@ Form for comments
 ## About
 
 Links, acknowledgements, and thanks.
+
+Weather data: https://data.gov.ie/dataset/rainfall-by-meteorological-weather-station-month-and-statistic/resource/3069f633-513d-4efd-92c7-a6be16ed6b17
