@@ -10,6 +10,7 @@ function drawGraph(data) {
         bottom: 50
     }
 
+    var rainfall_format = d3.format(",.0f")
     var plot_width = width - margin.left - margin.right;
     var plot_height = height - margin.top - margin.bottom;
 
@@ -18,14 +19,8 @@ function drawGraph(data) {
         years.push(i)
     }
 
-    months = []
-    for(var i=1; i < 13; i++){
-        if (i<10){
-            months.push("0"+i)
-        } else {
-        months.push(i)
-        }
-    }
+    months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
 
     var scaleX = d3.scaleBand()
         .domain(years)
@@ -68,8 +63,8 @@ function drawGraph(data) {
 
 
     heatmap.on("mouseover", function (d) {
-        // d3.select(event.currentTarget)
-        //     .attr("stroke", 15);
+        d3.select(event.currentTarget)
+            .attr("stroke", 2);
 
         tooltip
             .style('opacity', 0.9)
@@ -91,7 +86,7 @@ function drawGraph(data) {
 
     plot.append('g')
         .attr("transform",
-            "translate(0, " + scaleY(0) + ")")
+            "translate(0, " + plot_height + ")")
         .attr('class', 'axes')
         .call(xAx);
 
@@ -119,10 +114,11 @@ function drawGraph(data) {
 
 
     function tooltipFormatter(d) {
-        var tile = "<strong>" + d.Year + "," + d.Month + "</strong></br>"
-        var rainfall = "Rainfall (mm): " + d.Total
-        return tile + rainfall
-
+        return "<strong>"
+                + d.Month + " "  + d.Year
+                + "</strong></br>"
+                + rainfall_format(d.Total) + " mm"
+        
     }
 
 }
@@ -134,14 +130,13 @@ function draw() {
         data.forEach(d=>{
             d.Belmullet = +d.Belmullet;
             d.Valentia = +d.Valentia;
-            d.DublinAirport = +d.DublinAirport;
+            d.Dublin = +d.Dublin;
             d.MalinHead = +d.MalinHead;
             d.Mullingar = +d.Mullingar;
-            d.ShannonAirport = +d.ShannonAirport;
+            d.Shannon = +d.Shannon;
             d.Total = + d.Total;
 
         })
-    console.dir(data) // sanity check
     drawGraph(data);
     })
     .catch((err) => {
