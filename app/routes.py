@@ -69,10 +69,8 @@ def chooseTeam():
 
 @app.route("/rain")
 def rain():
-    c = Carpenter()
-    teams = c.make_soccer_table("total")
 
-    return render_template("rain.html", title="teams", teams=teams)
+    return render_template("rain.html", title="Rainfall")
 
 
 @app.route("/<string:season>_graph")
