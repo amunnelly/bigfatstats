@@ -1,6 +1,8 @@
-function drawGraph(data) {
+function drawGraph(files) {
 
-    console.log(data)
+    var data = files[0];
+    var colors = files[1];
+
     const width = 800
     const height = 493
 
@@ -11,19 +13,41 @@ function drawGraph(data) {
         bottom: 50
     }
 
-    // var data = [["a", 1,1], ["b", 2,2], ["c", 3,3]];
-
     var plot_width = width - margin.left - margin.right;
     var plot_height = height - margin.top - margin.bottom;
 
+    // console.log(data)
+    // console.log(colors)
+
+    teams = d3.nest()
+        .key(d => { return d.team })
+        .rollup(e => {
+            return {
+                gd: d3.sum(e, d => { return d.gd }),
+                points: d3.sum(e, d => { return d.points })
+            }
+        })
+        .entries(data)
+
+    let maxGD = 0;
+    let minGD = 0;
+
+    teams.forEach(d => {
+        if (d.value.gd > maxGD) {
+            maxGD = d.value.gd
+        }
+        if (d.value.gd < minGD) {
+            minGD = d.value.gd;
+        }
+    })
 
 
     var scaleX = d3.scaleLinear()
-        .domain([0, 4])
+        .domain([0, 38 * 3])
         .range([0, plot_width])
 
     var scaleY = d3.scaleLinear()
-        .domain([0, 4])
+        .domain([minGD, maxGD])
         .range([plot_height, 0])
 
     var canvas = d3.select('#canvas')
@@ -36,15 +60,15 @@ function drawGraph(data) {
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 
 
-    var dots = plot.selectAll('circle').data(data).enter()
+    var dots = plot.selectAll('circle').data(teams).enter()
         .append('circle')
         .attr('class', 'point-circle')
-        .attr("cx", d => { return scaleX(d[1]) })
-        .attr("cy", d => { return scaleY(d[2]) })
+        .attr("cx", d => { return scaleX(d.value.points) })
+        .attr("cy", d => { return scaleY(d.value.gd) })
         .attr("r", 10)
         .style("stroke-width", 2)
-        .style("fill", "blue")
-        .style("stroke", "red")
+        .style("fill", d => { return colors[d.key].first })
+        .style("stroke", d => { return colors[d.key].second })
 
     var tooltip = d3.select("body")
         .append('g')
@@ -104,28 +128,31 @@ function drawGraph(data) {
 
 
     function tooltipFormatter(d) {
-        var team = "<strong>" + d[0] + "</strong></br>"
-        var gd = "GD: " + d[1]
-        var points = "Points: " + d[2] + "</br>"
+        var team = "<strong>" + d.key + "</strong></br>"
+        var gd = "GD: " + d.value.gd
+        var points = "Points: " + d.value.points + "</br>"
         return team + points + gd
 
     }
 
 }
 
-function draw() {
-    d3.csv("./static/js/simpledata.csv")
-    .then(function (data) {
-        data.forEach(d=>{
-            d.Alice = +d.Alice;
-            d.Bob = +d.Bob;
-            d.Carol = +d.Carol;
+
+function draw(filename) {
+    Promise.all([d3.csv("./static/js/" + filename),
+    d3.json("./static/js/colors.json")])
+        .then(function (files) {
+            console.log(files[0])
+            console.log(files[1])
+            // files[0].forEach(d => {
+            //     d.points = +d.points
+            //     d.gd = +d.gd
+            // })
+
+            drawGraph(files)
         })
-    console.dir(data) // sanity check
-    drawGraph(data);
-    })
-    .catch((err) => {
-    console.log("data loading error")
-    console.log(err)
-    })
-    }
+        .catch((err) => {
+            console.log("Hell's bells, something's gone wrong.")
+            console.log(err)
+        })
+}
