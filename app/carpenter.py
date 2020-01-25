@@ -20,7 +20,7 @@ class Carpenter(object):
 
     def __init__(self):
         self.table = []
-        self.db = dbconnect.Postgres("app/db/searcher.json")
+        self.db = dbconnect.Postgres()
 
     def make_soccer_table(self, item, competition):
         with open("app/queries/select_distinct.sql") as f:

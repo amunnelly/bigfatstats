@@ -13,12 +13,12 @@ import json
 
 class Postgres(object):
     
-    def __init__(self, credentials):
+    def __init__(self):
         if 'DATABASE_url' in os.environ:
             dUrl = os.environ['DATABASE_URL']
             self.con = psq.connect(dUrl)
         else:
-            with open(credentials, "r") as f:
+            with open("searcher.json", "r") as f:
                 cred = json.load(f)
                 
             self.con = psql.connect(host=cred['Host'],
@@ -48,5 +48,5 @@ if __name__ == "__main__":
     group by a.team
     order by a.team;
     """
-    x = Postgres("searcher.json")
+    x = Postgres()
     x.run_query(query)
