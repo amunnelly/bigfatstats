@@ -14,7 +14,7 @@ if c_path not in sys.path:
 try:
     import dbconnect
 except:
-    from db import dbconnect
+    from app.db import dbconnect
 
 from carpenter import Carpenter
 
