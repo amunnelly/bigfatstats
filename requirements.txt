@@ -1,5 +1,6 @@
 certifi==2019.11.28
 Click==7.0
+dbconnect
 Flask==1.1.1
 Flask-WTF==0.14.2
 gunicorn
