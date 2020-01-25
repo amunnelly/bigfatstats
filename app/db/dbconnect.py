@@ -8,18 +8,23 @@ https://www.postgresqltutorial.com/postgresql-python/connect/
 """
 
 import psycopg2 as psql
+import os
 import json
 
 class Postgres(object):
     
     def __init__(self, credentials):
-        with open(credentials, "r") as f:
-            cred = json.load(f)
-            
-        self.con = psql.connect(host=cred['Host'],
-                                database=cred['Database'],
-                                user=cred['User'],
-                                password=cred['Password'])
+        if 'DATABASE_url' in os.environ:
+            dUrl = os.environ['DATABASE_URL']
+            self.con = psq.connect(dUrl, sslmode='require')
+        else:
+            with open(credentials, "r") as f:
+                cred = json.load(f)
+                
+            self.con = psql.connect(host=cred['Host'],
+                                    database=cred['Database'],
+                                    user=cred['User'],
+                                    password=cred['Password'])
         
         
     
