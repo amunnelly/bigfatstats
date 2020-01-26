@@ -14,19 +14,8 @@ import json
 class Postgres(object):
     
     def __init__(self):
-        if 'DATABASE_url' in os.environ:
-            dUrl = os.environ['DATABASE_URL']
-            self.con = psq.connect(dUrl)
-        else:
-            with open("searcher.json", "r") as f:
-                cred = json.load(f)
-                
-            self.con = psql.connect(host=cred['Host'],
-                                    database=cred['Database'],
-                                    user=cred['User'],
-                                    password=cred['Password'])
-        
-        
+        dUrl = os.environ['DATABASE_URL']
+        self.con = psq.connect(dUrl)
     
     def run_query(self, query):
         self.cur = self.con.cursor()
@@ -34,6 +23,19 @@ class Postgres(object):
         rows = self.cur.fetchall()
         return rows
         
+class LocalPostgres(Postgres):
+    
+    def __init__(self):
+        super().__init__()
+        with open("searcher.json", "r") as f:
+            cred = json.load(f)
+            
+        self.con = psql.connect(host=cred['Host'],
+                                database=cred['Database'],
+                                user=cred['User'],
+                                password=cred['Password'])
+
+
 
 if __name__ == "__main__":
     query = """
