@@ -58,7 +58,7 @@ function drawGraph(data) {
 
     var tooltip = d3.select("body")
         .append('g')
-        .attr('class', 'tooltip')
+        .attr('class', 'tooltip-weather')
         .style('opacity', 0)
 
 

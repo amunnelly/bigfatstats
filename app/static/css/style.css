@@ -39,12 +39,26 @@ body {
     border: 1px solid #535399;
 }
 
-.tooltip {
+.tooltip-soccer {
     position: absolute;
     text-align: center;
     width: 120px;
     height: 70px;
     padding: 2px;
+    font: 12px sans-serif;
+    background: #FFEA9C;
+    color: #535399;
+    border: solid 1px #535399;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+.tooltip-weather {
+    position: absolute;
+    text-align: center;
+    width: 120px;
+    height: 50px;
+    padding: 4px;
     font: 12px sans-serif;
     background: #FFEA9C;
     color: #535399;
