@@ -15,7 +15,7 @@ class Postgres(object):
     
     def __init__(self):
         dUrl = os.environ['DATABASE_URL']
-        self.con = psq.connect(dUrl)
+        self.con = psql.connect(dUrl)
     
     def run_query(self, query):
         self.cur = self.con.cursor()
