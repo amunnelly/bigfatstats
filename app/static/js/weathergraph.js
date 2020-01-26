@@ -16,7 +16,7 @@ function drawGraph(data) {
 
     years = []
     for(var i = 1970; i < 2020; i++){
-        temp = "'" + i.slice(2,4)
+        temp = "'" + i.toString().slice(2,4)
         years.push(temp)
     }
 
