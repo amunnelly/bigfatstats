@@ -11,11 +11,11 @@ body {
 .league-table, .contact-form {
     width: 75%;
     margin-left: 15%;
-    background: #FFD6B0;
+    background: #FFEA9C;
 }
 
 .choose-season {
-    background: #FFD6B0;
+    background: #FFEA9C;
     font-size: larger;
 }
 
@@ -31,12 +31,10 @@ body {
 .home-page-card a {
     text-decoration: none;
     color: #535399;
-    border: 1px solid #535399;
 }
 
 
 .home-page-card:hover{
-    background: #FFD6B0;
     color: #535399;
     border: 1px solid #535399;
 }
@@ -48,7 +46,7 @@ body {
     height: 70px;
     padding: 2px;
     font: 12px sans-serif;
-    background: #FFD6B0;
+    background: #FFEA9C;
     color: #535399;
     border: solid 1px #535399;
     border-radius: 8px;
