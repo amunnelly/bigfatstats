@@ -21,7 +21,7 @@ from app.carpenter import Carpenter
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template('index.html', title='Home')
+    return render_template('index.html', title='Big Fat Stats!')
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
