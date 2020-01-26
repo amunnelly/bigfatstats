@@ -15,8 +15,9 @@ function drawGraph(data) {
     var plot_height = height - margin.top - margin.bottom;
 
     years = []
-    for(var i = 1958; i < 2020; i++){
-        years.push(i)
+    for(var i = 1970; i < 2020; i++){
+        temp = "'" + i.slice(2,4)
+        years.push(temp)
     }
 
     months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
