@@ -35,7 +35,7 @@ function drawGraph(data) {
 
     var scaleColor = d3.scaleLinear()
                     .domain([0, d3.max(data, d=>{return d.Total})])
-                    .range(['white', 'red'])
+                    .range(['white', 'green'])
 
     var canvas = d3.select('#canvas')
         .append('svg')
