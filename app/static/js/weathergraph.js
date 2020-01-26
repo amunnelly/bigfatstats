@@ -125,7 +125,7 @@ function drawGraph(data) {
 
 
 function draw() {
-    d3.csv("app/static/js/weather.csv")
+    d3.csv("./app/static/js/weather.csv")
     .then(function (data) {
         data.forEach(d=>{
             d.Belmullet = +d.Belmullet;
