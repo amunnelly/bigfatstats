@@ -129,6 +129,7 @@ function draw() {
     d3.csv("./static/js/rain.csv")
     .then(function (data) {
         data.forEach(d=>{
+            d.Year = "'" + d.Year.slice(2,4);
             d.Belmullet = +d.Belmullet;
             d.Valentia = +d.Valentia;
             d.Dublin = +d.Dublin;
