@@ -142,12 +142,10 @@ function draw(filename) {
     Promise.all([d3.csv("./static/js/" + filename),
     d3.json("./static/js/colors.json")])
         .then(function (files) {
-            console.log(files[0])
-            console.log(files[1])
-            // files[0].forEach(d => {
-            //     d.points = +d.points
-            //     d.gd = +d.gd
-            // })
+            files[0].forEach(d => {
+                d.points = +d.points
+                d.gd = +d.gd
+            })
 
             drawGraph(files)
         })
