@@ -3,11 +3,15 @@
 {% block content %}
 <div class="container">
 <h2>Choose a Season</h2>
-<p>Choose a season from the list and see a graph of points vs goal difference for all the EPL teams in that season.</p>
+<p>Choose a season from the list and see a graph of points vs goal difference for all the {{ competitition }} teams in that season.</p>
     {% for a in seasons %}
     <div class="row">
     {% for b in a %}
-    <a href="/{{ b }}_graph">
+    {% if competition == 'Premier League'%}
+    <a href="/{{ b }}_p_graph">
+    {% else %}
+    <a href="/{{ b }}_c_graph">
+    {% endif %}
     <div class="col choose-season">
     {{ b }}
     </a>

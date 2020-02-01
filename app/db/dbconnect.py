@@ -4,6 +4,7 @@ Created on Sun Jan  5 17:31:35 2020
 
 @author: amunnelly
 
+** I CONNECT REMOTELY **
 https://www.postgresqltutorial.com/postgresql-python/connect/
 """
 
@@ -23,20 +24,6 @@ class Postgres(object):
         rows = self.cur.fetchall()
         return rows
         
-class LocalPostgres(Postgres):
-    
-    def __init__(self):
-        super().__init__()
-        with open("searcher.json", "r") as f:
-            cred = json.load(f)
-            
-        self.con = psql.connect(host=cred['Host'],
-                                database=cred['Database'],
-                                user=cred['User'],
-                                password=cred['Password'])
-
-
-
 if __name__ == "__main__":
     query = """
     select a.team,

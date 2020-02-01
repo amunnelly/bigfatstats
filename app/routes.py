@@ -54,13 +54,16 @@ def chooseTable():
 
     return render_template("chooseTable.html", title="Seasons", seasons=seasons)
 
-@app.route("/chooseGraph")
-def chooseGraph():
+@app.route("/choose_<string:comp>_graph")
+def chooseGraph(comp):
     c = Carpenter()
-    seasons = c.make_soccer_table("season", "Premier League")
+    if comp == "pl":
+        competition = "Premier League"
+    else:
+        competition = "Championship"
+    seasons = c.make_soccer_table("season", competition)
 
-    return render_template("chooseGraph.html", title="Seasons", seasons=seasons)
-
+    return render_template("chooseGraph.html", title="Premier League Seasons", competition=competition, seasons=seasons)
 
 @app.route("/chooseTeam")
 def chooseTeam():
@@ -76,16 +79,21 @@ def rain():
     return render_template("rain.html", title="Rainfall")
 
 
-@app.route("/<string:season>_graph")
-def seasonGraph(season):
+@app.route("/<string:season>_<string:comp>_graph")
+def seasonGraph(season, comp):
     c = Carpenter()
     c.tidy_data_folder()
     now = datetime.datetime.now()
     now = now.strftime("%f")
     filename_js = "{:}.csv".format(now)
     filename_py = "./app/static/js/{:}.csv".format(now)
-    teams = c.get_season(season, "Premier League")
-    title = season + " Premier League Season"
+    if comp == "p":
+        competition = "Premier League"
+    else:
+        competition = "Championship"
+
+    teams = c.get_season(season, competition)
+    title = season + " " + competition
     c.create_csv(teams, filename_py)
 
     return render_template("pointsVgoals.html", filename=filename_js, title=title)
