@@ -1,0 +1,68 @@
+{
+  "head": {
+    "counts": {},
+    "dateRange": {
+      "start": "2020-02-19T21:01:34.253Z",
+      "end": "2020-02-19T21:01:34.253Z"
+    },
+    "lang": "en"
+  },
+  "results": [
+    {
+      "division": {
+        "isBill": true,
+        "debate": {
+          "showAs": "string",
+          "uri": "string",
+          "formats": {},
+          "debateSection": "string"
+        },
+        "voteId": "string",
+        "tallies": {
+          "nilVotes": {
+            "tally": 0,
+            "showAs": "string",
+            "members": [
+              {
+                "member": {
+                  "showAs": "string"
+                }
+              }
+            ]
+          },
+          "taVotes": {
+            "tally": 0,
+            "showAs": "string",
+            "members": [
+              {
+                "member": {
+                  "showAs": "string"
+                }
+              }
+            ]
+          }
+        },
+        "chamber": {
+          "showAs": "string",
+          "uri": "string"
+        },
+        "category": "string",
+        "subject": {
+          "showAs": "string"
+        },
+        "uri": "string",
+        "outcome": "string",
+        "tellers": "string",
+        "house": {
+          "uri": "string",
+          "houseNo": "string",
+          "houseCode": "string",
+          "chamberType": "string",
+          "showAs": "string",
+          "committeeCode": "string"
+        },
+        "date": "string"
+      }
+    }
+  ]
+}

@@ -1,5 +1,7 @@
 function drawGraph(data) {
 
+    console.log(data)
+
     const width = 1050
     const height = 550
 
@@ -126,7 +128,7 @@ function drawGraph(data) {
 
 
 function draw() {
-    d3.csv("./static/js/rain.csv")
+    d3.csv("./static/js/rain/rain.csv")
     .then(function (data) {
         data.forEach(d=>{
             d.Year = "'" + d.Year.slice(2,4);

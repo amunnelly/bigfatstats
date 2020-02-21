@@ -1,0 +1,63 @@
+digraph {
+    node[shape=Mrecord]
+    edge[color=gold]
+
+    rankdir=LR;
+    {rank=same; head results}
+
+head
+results
+counts
+dateRange
+lang
+memberCount
+resultCount
+start
+end
+member
+showAs
+lastName
+firstName
+gender
+memberships
+memberships1[label="memberships"]
+uri
+uri1[label="uri"]
+wikiTitle
+fullName
+dateOfDeath
+memberCode
+image
+pId
+parties
+house
+offices
+represents
+dateRange1[label="dateRange"]
+
+head -> {counts dateRange lang}
+counts -> {memberCount resultCount}
+dateRange -> {start end}
+results -> member;
+member -> {showAs
+lastName
+firstName
+gender
+memberships
+uri
+wikiTitle
+fullName
+dateOfDeath
+memberCode
+image
+pId
+}
+
+memberships -> memberships1 ->  {parties
+house
+offices
+uri1
+represents
+dateRange1}
+
+}

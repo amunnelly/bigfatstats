@@ -1,1 +1,0 @@
-There are two `dbconnect.py` programs. One connects in a local environment, the other in a heroku environment. It's easier to switch each in and out of this folder than do anything else, I think.
