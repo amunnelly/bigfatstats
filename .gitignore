@@ -1,4 +1,6 @@
 ./db/searcher.json
 thingstocome.txt
 venv/
+exchequer_tax_returns/
+oireachas_api/
 __pycache__/

@@ -2,10 +2,9 @@
 """
 Created on Sun Jan  5 17:31:35 2020
 
-** I CONNECT LOCALLY**
-
 @author: amunnelly
 
+** I CONNECT REMOTELY **
 https://www.postgresqltutorial.com/postgresql-python/connect/
 """
 
@@ -16,21 +15,15 @@ import json
 class Postgres(object):
     
     def __init__(self):
-        with open("./app/db/searcher.json", "r") as f:
-            cred = json.load(f)
-            
-        self.con = psql.connect(host=cred['Host'],
-                                database=cred['Database'],
-                                user=cred['User'],
-                                password=cred['Password'])
-
+        dUrl = os.environ['DATABASE_URL']
+        self.con = psql.connect(dUrl)
+    
     def run_query(self, query):
         self.cur = self.con.cursor()
         self.cur.execute(query)
         rows = self.cur.fetchall()
         return rows
-
-
+        
 if __name__ == "__main__":
     query = """
     select a.team,
