@@ -7,22 +7,22 @@
   <div id="canvas"></div>
   </div>
   <div class="row">
-  {{ teams }}
+
   	<table class="table table-hover league-table">
 		<tr>
 			<th>Team</th>
-			<th>Points</th>
 			<th>Goal Difference</th>
 			<th>Goals For</th>
 			<th>Goals Against</th>
+			<th>Points</th>
 		</tr>
 		{% for team in teams %}
 			<tr>
 				<td>{{ team[0] }}</td>
-				<td>{{ team[1] }}</td>
 				<td>{{ team[2] }}</td>
 				<td>{{ team[3] }}</td>
 				<td>{{ team[4] }}</td>
+				<td>{{ team[1] }}</td>
 			</tr>
 		{% endfor %}
 	</table>
