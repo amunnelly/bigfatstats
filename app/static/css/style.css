@@ -16,12 +16,21 @@ body {
 }
 
 .choose-season {
-    background: #FFEA9C;
-    text-decoration: none;
+    display: grid;
+    height: 90%;
+    border: solid 1px #ffffff;
     color: #535399;
-    font-size: larger;
+    font-size: x-large;
 }
 
+.choose-season a {
+    text-decoration: none;
+}
+
+.choose-season a:hover {
+    color: #535399;
+    
+}
 
 
 .home-page-card {
@@ -37,8 +46,9 @@ body {
 }
 
 
-.home-page-card:hover{
+a:hover .home-page-card.basic.card {
     color: #535399;
+    text-decoration: none;
     border: 1px solid #535399;
 }
 
@@ -68,4 +78,8 @@ body {
     border: solid 1px #535399;
     border-radius: 8px;
     pointer-events: none;
+}
+
+svg.text.axis-label {
+    color: #535399;
 }
