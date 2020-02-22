@@ -82,8 +82,8 @@ class Carpenter(object):
         rows.sort(key=lambda x: x[1], reverse=True)
         if csv:
             self.create_csv(rows)
-        else:
-            return rows
+        
+        return rows
 
     def create_csv(self, data, filename):
         """

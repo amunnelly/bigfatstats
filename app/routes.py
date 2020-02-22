@@ -94,9 +94,9 @@ def seasonGraph(season, comp):
 
     teams = c.get_season(season, competition)
     title = season + " " + competition
-    c.create_csv(teams, filename_py)
+    data = c.create_csv(teams, filename_py)
 
-    return render_template("pointsVgoals.html", filename=filename_js, title=title)
+    return render_template("pointsVgoals.html", filename=filename_js, teams=teams, title=title)
 
 @app.route("/<string:season>_table")
 def seasonTable(season):

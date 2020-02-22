@@ -11,9 +11,8 @@ body {
 
 .league-table, .contact-form {
     width: 75%;
-    margin-left: 15%;
     color: #535399;
-    background: #FFEA9C;
+    background: #F0F8FF;
 }
 
 .choose-season {
@@ -64,7 +63,7 @@ body {
     height: 40px;
     padding: 4px;
     font: 12px sans-serif;
-    background: #FFEA9C;
+    background: #F0F8FF;
     color: #535399;
     border: solid 1px #535399;
     border-radius: 8px;
