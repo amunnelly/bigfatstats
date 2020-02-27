@@ -79,6 +79,12 @@ def rain():
     return render_template("rain.html", title="Rainfall")
 
 
+@app.route("/regression")
+def regression():
+
+    return render_template("regression.html", title="regression")
+
+
 @app.route("/<string:season>_<string:comp>_graph")
 def seasonGraph(season, comp):
     c = Carpenter()
