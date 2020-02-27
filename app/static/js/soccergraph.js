@@ -53,8 +53,10 @@ function drawGraph(files) {
     var canvas = d3.select('#canvas')
         .append('svg')
         .style('background', '#b5fcb5')
-        .attr('height', height)
+        .attr('height', 0)
         .attr('width', width)
+
+    canvas.transition().delay(750).attr('height', height);
 
     var plot = canvas.append('g')
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
